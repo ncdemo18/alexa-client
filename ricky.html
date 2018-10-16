@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/animations.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--
+   чтобы не подключать кучу файлов, можно подключить один, а внутри написать так:
+   function include(url) {
+        var script = document.createElement('script');
+        script.src = url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    Вызов:
+
+    include("/js/script.js");
+
+   Тогда можно органировать нормальный порядок загрузки данных.
+   И это позволит плодить файлы js в свое удовольствие.
+   Можно даже иерархию папочек выстроить =)
+   -->
+
+    <script src="utils.js"></script>
+    <script src="generateUserPages.js"></script>
+    <script src="pagetransition.js"></script>
+    <script src="connect.js"></script>
+
+</head>
+
+<body>
+    <button onclick="nextPage()">Transition test button</button>
+
+    <div id="pt-main" class="pt-perspective">
+        <div class="main-div" id="loginBlock">
+            <div>
+                <h2>Login</h2>
+            </div>
+            <form id="Login">
+                <div class="form-group">
+                    <input class="form-control" id="username" placeholder="Login">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="login(event)">Login</button>
+            </form>
+        </div>
+
+        <div class="ticket_count_block" style="visibility: hidden">
+            <img id="ticket_count_img_id" src="mockup/london/bg/Passes Button - 6.png">
+        </div>
+
+        <div class="ticket_panel">
+            <img id="ticket_panel_img_id" class="ticket_panel_img" src="mockup/london/bg/Passes Panel - Ricky.png">
+        </div>
+    </div>
+
+
+</body>
+<script>
+
+    function login(event){
+        let username = document.getElementById("username").value;
+        if(username !== undefined && username !== null) {
+            authorization(username);
+        }
+        event.preventDefault();     
+    }
+    
+</script>
+
+</html>
+
+<!--  <div class="pt-page pt-page-1 pt-page-current">
+        <div class="scroll-image" style="text-align:center">
+            <img class="bcg_img_one" src="mockup/london/bg/1 Lock Screen.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="time_block col-sm-4">
+                    16:39     pm
+                </div>
+                <div class="date_block col-sm-4">
+                    <div>
+                        October 1th, 2018
+                    </div>
+                    <div class="week_day">
+                        Monday
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ -->
+<!--PAGE 1-->
+
+<!-- <div class="pt-page pt-page-1" id="page_1">
+            <div id="time" class="time_block" style="font-size: 62px"></div>
+            <div id="date" class="time_block" style="left: 730px; font-size: 40px"></div>
+            <div class="scroll-image">
+                <img class="bcg_img_one" src="mockup/london/bg/1 Lock Screen.png">
+            </div>
+            <script>
+                var dateElement = document.getElementById("time");
+                dateElement.textContent = getFormatTime();
+
+                var dateElement = document.getElementById("date");
+                dateElement.textContent = getFormatDate();
+            </script>
+        </div> -->
+
+<!--PAGE 2-->
+
+<!--  <div class="pt-page pt-page-2" id="page_2">
+            <div class="scroll-image">
+                <img class="bcg_img_one" src="mockup/london/bg/2 Lock Screen.png">
+            </div>
+        </div> -->
+
+
+<!--PAGE 3-->
+
+<!-- <div class="pt-page pt-page-2" id="page_3">
+            <div class="scroll-image">
+                <img class="bcg_img_one" src="mockup/london/bg/3 Media Center.png">
+            </div>
+        </div> -->
+
+<!--PAGE 4-->
+
+<!--  <div class="pt-page pt-page-2" id="page_4">
+            <div class="scroll-image">
+                <img class="bcg_img_one" src="mockup/london/bg/5 Match page.png">
+            </div>
+        </div> -->
